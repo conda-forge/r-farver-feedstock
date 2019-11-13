@@ -1,4 +1,4 @@
-{% set version = "2.0.0" %}
+{% set version = '2.0.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,7 +7,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: farver_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/farver_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/farver/farver_{{ version }}.tar.gz
@@ -16,17 +15,16 @@ source:
 build:
   merge_build_host: True  # [win]
   number: 0
-  skip: true  # [win32]
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
-    - {{ compiler('cxx') }}      # [not win]
+    - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('m2w64_cxx') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
     - {{posix}}sed               # [win]
@@ -34,11 +32,9 @@ requirements:
     - {{posix}}zip               # [win]
   host:
     - r-base
-    - r-rcpp >=0.12.15
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
-    - r-rcpp >=0.12.15
 
 test:
   commands:
@@ -48,24 +44,37 @@ test:
 about:
   home: https://github.com/thomasp85/farver
   license: MIT
-  license_file: 
-    - LICENSE 
-    - LICENSE.note 
-
   summary: The encoding of colour can be handled in many different ways, using different colour
     spaces. As different colour spaces have different uses, efficient conversion between
-    these representations are important. The  'farver' package provides a set of functions
+    these representations are important. The 'farver' package provides a set of functions
     that gives access to very fast colour space conversion and comparisons implemented
-    in C++, and offers  100-fold speed improvements over the 'convertColor' function
-    in the  'grDevices' package.
+    in C++, and offers speed improvements over the 'convertColor' function in the 'grDevices'
+    package.
   license_family: MIT
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - LICENSE
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+
+# Package: farver
+# Type: Package
+# Title: High Performance Colour Space Manipulation
+# Version: 2.0.0
+# Authors@R: c(person(given = "Thomas Lin", family = "Pedersen", role = c("cre", "aut"), email = "thomasp85@gmail.com", comment = c(ORCID = "0000-0002-5147-4711")), person(given = "Berendea", family = "Nicolae", role = "aut", comment = "Author of the ColorSpace C++ library"), person(given = "Romain", family = "Francois", role = "aut", email = "romain@purrple.cat", comment = c(ORCID = "0000-0002-2444-4226")) )
+# Maintainer: Thomas Lin Pedersen <thomasp85@gmail.com>
+# Description: The encoding of colour can be handled in many different ways, using different colour spaces. As different colour spaces have different uses, efficient conversion between these representations are important. The 'farver' package provides a set of functions that gives access to very fast colour space conversion and comparisons implemented in C++, and offers speed improvements over the 'convertColor' function in the 'grDevices' package.
+# License: MIT + file LICENSE
+# Encoding: UTF-8
+# SystemRequirements: C++11
+# RoxygenNote: 6.1.1
+# URL: https://github.com/thomasp85/farver
+# BugReports: https://github.com/thomasp85/farver/issues
+# Suggests: testthat (>= 2.1.0), covr
+# NeedsCompilation: yes
+# Packaged: 2019-11-13 13:51:29 UTC; thomas
+# Author: Thomas Lin Pedersen [cre, aut] (<https://orcid.org/0000-0002-5147-4711>), Berendea Nicolae [aut] (Author of the ColorSpace C++ library), Romain Francois [aut] (<https://orcid.org/0000-0002-2444-4226>)
+# Repository: CRAN
+# Date/Publication: 2019-11-13 14:10:02 UTC
