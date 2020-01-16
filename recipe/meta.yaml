@@ -1,4 +1,4 @@
-{% set version = "2.0.2" %}
+{% set version = "2.0.3" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/farver_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/farver/farver_{{ version }}.tar.gz
-  sha256: ddacbfb91e0dfc1283c6ffb94066d7e46baf8b42742a3172f1f6d70fe9cdd5cd
+  sha256: 0e1590df79ec6078f10426411b96216b70568a4eaf3ffd84ca723add0ed8e5cc
 
 build:
   merge_build_host: True  # [win]
