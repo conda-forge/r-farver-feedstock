@@ -3,6 +3,7 @@ About r-farver-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-farver-feedstock/blob/main/LICENSE.txt)
 
+
 About r-farver
 --------------
 
@@ -11,6 +12,7 @@ Home: https://github.com/thomasp85/farver
 Package license: MIT
 
 Summary: The encoding of colour can be handled in many different ways, using different colour spaces. As different colour spaces have different uses, efficient conversion between these representations are important. The 'farver' package provides a set of functions that gives access to very fast colour space conversion and comparisons implemented in C++, and offers speed improvements over the 'convertColor' function in the 'grDevices' package.
+
 About r-farver
 --------------
 
@@ -195,7 +197,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
